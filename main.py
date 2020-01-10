@@ -21,7 +21,7 @@ filterList = ["Season", "SEASON", "Series", "Fate/Apocrypha", "Top Gear:", "Stra
         '''
 
 result = []
-with open("NetflixViewingHistory.csv") as textfile:
+with open("ProjectData/NetflixViewingHistory.csv") as textfile:
     newFile = open("cleanedNetflixFile.txt", "w")
     next(textfile)
     for line in textfile:
@@ -38,6 +38,7 @@ with open("NetflixViewingHistory.csv") as textfile:
          #   line = line.strip('\"\n').split('","')
           #  result.append(line)
     newFile.close()
+
 
 
 
