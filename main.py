@@ -54,6 +54,7 @@ def readTsvFile(tf):
             tsvList.append(row)
     return tsvList
 
+
 #ratings = readTsvFile("ProjectData/title_ratings.tsv") #Ratings
 
 #title_basics = readTsvFile("ProjectData/title_basics.tsv")
