@@ -66,14 +66,14 @@ def mergeWatchTime():
 mergedWatchTimeList = mergeWatchTime()
 workinglist = mergedWatchTimeList
 workinglist.pop(0)
-'''genres_set = set()
+genres_set = set()
 for n in range(len(workinglist)):
     mov_genres = workinglist[n][8].split(",")
     workinglist[n][8] = mov_genres[0]
     for j in range(len(mov_genres)):
         genres_set.add(mov_genres[j])
-'''
 
+print(len(genres_set))
 df = pd.DataFrame(data=workinglist)
 df.columns = ['tconst','titleType','primaryTitle','originalTitle','isAdult','startYear','endYear','runtimeMinutes','genres','averageRating','numVotes','watchDate']
 genresDf = df['genres'].str.get_dummies(sep=',')
@@ -82,8 +82,8 @@ genresDf = df['genres'].str.get_dummies(sep=',')
 #dummies = pd.get_dummies(df.genres)
 #print(dummies)
 merged = pd.concat([df,genresDf],axis='columns')
-print(merged)
+#print(merged)
 #print(df)
-for col in merged.columns:
-    print(col)
+#for col in merged.columns:
+ #   print(col)
 merged.to_csv('ProjectData/mergedWatchTime&GenresEncoding.csv')
