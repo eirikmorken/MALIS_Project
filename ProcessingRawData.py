@@ -8,21 +8,11 @@ filterList = ["Season", "SEASON", "Series", "Fate/Apocrypha", "Top Gear:", "Stra
  "Deadman Wonderland", "Trollhunters: Tales", "LAST HOPE", "Disenchantment: P", "Avatar: The Last", "Manhunt Unabomber", "Kakegurui",
  "Money Heist:", "SWORDGAI", "HERO MASK", "Love, Death &", "The OA", "Dear White People: Vol", "KENGAN", "Ascension:"]
 
-'''with open("NetflixViewingHistory.csv") as csvfile:
-    reader = csv.reader(csvfile, delimiter=',', quotechar='|') 
-    for row in reader: # each row is a list
-        if "Season" in row[0] or "SEASON" in row[0]:
-            continue
-        
-        results.append(row)
-    for row in reader: # each row is a list
-        if "Season" not in row[0] and "SEASON" not in row[0]:
-            results.append(row)
-        '''
 
+#Reading in netflix files 
 result = []
 with open("ProjectData/NetflixViewingHistory.csv") as textfile:
-    newFile = open("cleanedNetflixFile.txt", "w")
+    newFile = open("ProjectData/cleanedNetflixFile.txt", "w")
     next(textfile)
     for line in textfile:
         passedFilter = True
@@ -34,18 +24,10 @@ with open("ProjectData/NetflixViewingHistory.csv") as textfile:
             line = line.strip('\"\n').split('","')
             
             result.append(line)
-        #if "Season" not in line and "SEASON" not in line and "Fate/Apocrypha" not in line:
-         #   line = line.strip('\"\n').split('","')
-          #  result.append(line)
     newFile.close()
 
 
-
-
-#for x in result:
-#    print(x)
-print(len(result))
-
+#Method for generally reading csv files
 def readTsvFile(tf):
     tsvList = []
     with open(tf) as ratingsFile:
@@ -60,6 +42,8 @@ def readTsvFile(tf):
 #title_basics = readTsvFile("ProjectData/title_basics.tsv")
 #print(len(title_basics))
 
+
+#For reading and filtering IMDB files
 def readAndFilterIMDBdata():
     tsvList = []
     movieList = []
@@ -74,10 +58,11 @@ def readAndFilterIMDBdata():
 IMDBmovs = readAndFilterIMDBdata()
 print("Filtered out movies")
 
+
+#Joining moivies on title, filtering away obscure movies with identical titles to match netflix data
 def joinOnTitle():
     joinedMovs = []
     for mov in result:
-
         for n in range(len(IMDBmovs)):
             if IMDBmovs[n][2] == mov[0]:
                 mostVotes = IMDBmovs[n][2]
@@ -88,17 +73,16 @@ def joinOnTitle():
                 joinedMovs.append(mostVotes)
     return joinedMovs
 
+
 joinedMovs = joinOnTitle()
 print("Joined movies.")
+
 
 for x in range(10):
  #   print(ratings[x])
     #print(result[x])
     #print(IMDBmovs[x])
     print(joinedMovs[x])
-
-print(len(IMDBmovs))
-print(len(joinedMovs))
 
 
 

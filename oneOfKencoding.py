@@ -23,7 +23,6 @@ def readNetflixLocalData():
             if passedFilter == True:
                 newFile.write(line)
                 line = line.strip('\"\n').split('","')
-                
                 result.append(line)
         newFile.close()
     return result
@@ -79,11 +78,6 @@ df.columns = ['tconst','titleType','primaryTitle','originalTitle','isAdult','sta
 genresDf = df['genres'].str.get_dummies(sep=',')
 
 
-#dummies = pd.get_dummies(df.genres)
-#print(dummies)
 merged = pd.concat([df,genresDf],axis='columns')
 #print(merged)
-#print(df)
-#for col in merged.columns:
- #   print(col)
 merged.to_csv('ProjectData/mergedWatchTime&GenresEncoding.csv')
