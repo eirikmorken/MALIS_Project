@@ -16,6 +16,15 @@ popped = data.pop('averageRating')
 data['averageRating'] = popped
 popped = data.pop('numVotes')
 data['numVotes']= popped
-popped = data.
-print(data)
-KPrototypes(n_clusters=10, init='Huang', n_init=11, verbose=2).fit_predict(data, categorical=list())
+popped = data.pop('runtimeMinutes')
+data['runtimeMinutes'] = popped
+input = data.iloc[:,7:]
+input.iloc[:,:22] = input.iloc[:,:22].astype(int)
+input.iloc[:,-4:] = input.iloc[:,-4:].astype(float)
+kp = KPrototypes(n_clusters=10, init='Huang', n_init=1, verbose=2)
+clusters = kp.fit_predict(input, categorical=list(range(23)))
+data['cluster'] = clusters
+for 
+
+
+
