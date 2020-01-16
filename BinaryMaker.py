@@ -1,9 +1,13 @@
 import pandas as pd
 import numpy as np
 from kmodes.kmodes import KModes
-data = pd.read_csv('ProjectData/cleanedData.csv')
+data = pd.read_csv('ProjectData/mergedWatchTime&GenresEncoding.csv')
 data = data.replace('\\N',0)
+data = data.rename(columns={'\\N':'noGenre'})
+data = data.drop(labels='Unnamed: 0',axis = 1)
 data = data.fillna(value=0)
+isAdult = data.pop('isAdult')
+data['isAdult'] = isAdult
 data.startYear = data.startYear.values.astype(int)
 data.runtimeMinutes = data.runtimeMinutes.values.astype(int)
 data['OaF-release'] = np.ones(len(data.startYear.values))
@@ -24,6 +28,8 @@ for i in range(10):
     title = str(i)+'_rating'
     data[title] = np.zeros(len(data.averageRating.values))
     data.loc[(data.averageRating > i) & (data.averageRating <= (i + 1)), title] = 1
+print(data.iloc[:,11:])
+data.iloc[:,11:] = data.iloc[:,11:].astype(int)
 print(data)
 
 # define the k-modes model
@@ -37,5 +43,7 @@ shape = kmodes.shape
 # find and print the column headings where "1" appears.
 # If no "1" appears, assign to "no-skills" cluster.
 data['cluster'] = clusters
-print(data[['originalTitle','cluster']])
-print(kmodes)
+
+clusterss = data.loc[data.cluster==data.iloc[0,-1],:]
+for clusNum in range(11):
+    clusData = data.loc[data.cluster==clusNum,]
