@@ -21,10 +21,18 @@ data['runtimeMinutes'] = popped
 input = data.iloc[:,7:]
 input.iloc[:,:22] = input.iloc[:,:22].astype(int)
 input.iloc[:,-4:] = input.iloc[:,-4:].astype(float)
-kp = KPrototypes(n_clusters=10, init='Huang', n_init=1, verbose=2)
+kp = KPrototypes(n_clusters=10, init='Cao', n_init=3, verbose=2)#option are Huang and Cao
 clusters = kp.fit_predict(input, categorical=list(range(23)))
 data['cluster'] = clusters
-for 
+clusterPercentage = []
+for clusNum in range(10):
+    clusData = data.loc[data.cluster==clusNum,:]
+    totalLen = len(clusData.startYear.values)
+    watchedLen = len(clusData.loc[clusData.watchDate!=0,'originalTitle'])
+    clusterPercentage.append(watchedLen/totalLen*100)
+clusPercent = np.array(clusterPercentage)
+bestCluster = data.loc[data.cluster==np.argmax(clusPercent),:]
+print(bestCluster)
 
 
 

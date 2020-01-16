@@ -46,4 +46,6 @@ data['cluster'] = clusters
 
 clusterss = data.loc[data.cluster==data.iloc[0,-1],:]
 for clusNum in range(11):
-    clusData = data.loc[data.cluster==clusNum,]
+    clusData = data.loc[data.cluster==clusNum,:]
+    totalLen = len(clusData.startYear.values)
+    watchedLen = len(clusData.loc[clusData.watchDate!=0,'originalTitle'])
