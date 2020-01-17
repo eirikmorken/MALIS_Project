@@ -36,11 +36,14 @@ def readTsvFile(tf):
             tsvList.append(row)
     return tsvList
 
+newMovList = readTsvFile('ProjecData/')
+
 
 #ratings = readTsvFile("ProjectData/title_ratings.tsv") #Ratings
 
 #title_basics = readTsvFile("ProjectData/title_basics.tsv")
 #print(len(title_basics))
+
 
 
 #For reading and filtering IMDB files
