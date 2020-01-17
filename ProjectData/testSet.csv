@@ -1,15 +1,15 @@
-,tconst,titleType,primaryTitle,originalTitle,endYear,genres,watchDate,Action,Adult,Adventure,Animation,Biography,Comedy,Crime,Documentary,Drama,Family,Fantasy,History,Horror,Musical,Mystery,Romance,Sci-Fi,Short,Sport,Thriller,noGenre,isAdult,startYear,averageRating,numVotes,runtimeMinutes,cluster
-1,,,Marriage Story,Marriage Story,0,,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,2019,8.1,123276,137,
-2,,,The Irishman,The Irishman,0,,1,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2019,8,199875,209,
-3,,,Terminator Genisys,Terminator Genisys,0,,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2015,6.4,246303,126,
-4,,,6 Underground,6 Underground,0,,1,1,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2019,6.1,85701,128,
-5,,,Christmas Wedding Planner,Christmas Wedding Planner,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,2017,4.3,4069,86,
-6,,,Rumor Has It,Rumor Has It,0,,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,2005,5.5,50553,97,
-7,,,Kick-Ass,Kick-Ass,0,,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2010,7.6,508167,117,
-8,,,Manchester by the Sea,Manchester by the Sea,0,,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2016,7.8,225340,137,
-9,,,HeartBreaker,HeartBreaker,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2010,6.7,24453,105,
-10,,,Cube,Cube,0,,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,1997,7.2,198617,7.2,
-11,,,Back of the net,Back of the net,0,,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2019,4.9,260,98,
-12,,,Locked out,Locked out,0,,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2006,6.2,1861,90,
-13,,,The Great Challenge,The Great Challenge,0,,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2004,4.7,2108,90,
-14,,,Ghost Stories,Ghost Stories,0,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,2019,4.2,2682,144,
+,tconst,titleType,primaryTitle,originalTitle,endYear,genres,watchDate,Action,Adult,Adventure,Animation,Biography,Comedy,Crime,Documentary,Drama,Family,Fantasy,History,Horror,Musical,Mystery,Romance,Sci-Fi,Short,Sport,Thriller,noGenre,isAdult,startYear,averageRating,numVotes,runtimeMinutes
+1,,,Marriage Story,Marriage Story,0,,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,2019,8.1,123276,137
+2,,,The Irishman,The Irishman,0,,1,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2019,8,199875,209
+3,,,Terminator Genisys,Terminator Genisys,0,,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2015,6.4,246303,126
+4,,,6 Underground,6 Underground,0,,1,1,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2019,6.1,85701,128
+5,,,Christmas Wedding Planner,Christmas Wedding Planner,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,2017,4.3,4069,86
+6,,,Rumor Has It,Rumor Has It,0,,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,2005,5.5,50553,97
+7,,,Kick-Ass,Kick-Ass,0,,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2010,7.6,508167,117
+8,,,Manchester by the Sea,Manchester by the Sea,0,,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2016,7.8,225340,137
+9,,,HeartBreaker,HeartBreaker,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2010,6.7,24453,105
+10,,,Cube,Cube,0,,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,1997,7.2,198617,7.2
+11,,,Back of the net,Back of the net,0,,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2019,4.9,260,98
+12,,,Locked out,Locked out,0,,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2006,6.2,1861,90
+13,,,The Great Challenge,The Great Challenge,0,,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2004,4.7,2108,90
+14,,,Ghost Stories,Ghost Stories,0,,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,2019,4.2,2682,144

@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 from kmodes.kprototypes import KPrototypes
 data = pd.read_csv('ProjectData/mergedWatchTime&GenresEncoding.csv')
 data = data.replace('\\N',0)
@@ -21,20 +22,28 @@ data['runtimeMinutes'] = popped
 input = data.iloc[:,7:]
 input.iloc[:,:22] = input.iloc[:,:22].astype(int)
 input.iloc[:,-4:] = input.iloc[:,-4:].astype(float)
-kp = KPrototypes(n_clusters=10, init='Cao', n_init=3, verbose=2)#option are Huang and Cao
+kp = KPrototypes(n_clusters=10, init='Cao', n_init=1, verbose=2)#option are Huang and Cao
 clusters = kp.fit_predict(input, categorical=list(range(23)))
 data['cluster'] = clusters
-clusterPercentage = []
+
 data['clusPercent'] = np.zeros(len(data.numVotes.values))
 for clusNum in range(10):
     clusData = data.loc[data.cluster==clusNum,:]
     totalLen = len(clusData.startYear.values)
     watchedLen = len(clusData.loc[clusData.watchDate!=0,'originalTitle'])
     data.loc[data.cluster == clusNum,'clusPercent'] = watchedLen/totalLen*100
-data.to_csv('ProjectData/trainingData.csv')
+from sklearn.ensemble import RandomForestRegressor
+dataTest = pd.read_csv('ProjectData/testSet.csv')
+ranForReg = RandomForestRegressor(random_state=1, n_estimators=10)
+ranForReg.fit(input,data.clusPercent)
+output=ranForReg.predict(dataTest.iloc[:,8:])
+plt.scatter(output,dataTest.index)
+for index in range(len(dataTest.index)):
+    print(str(dataTest.loc[index,'primaryTitle'])+' has cluster percentage= '+ str(output[index]))
+plt.show()
 
 
 
 
 
-data.to_csv('ProjectData/trainingData.csv')
+
