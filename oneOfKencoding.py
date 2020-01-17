@@ -29,6 +29,7 @@ def readNetflixLocalData():
 
 netflixLocalData = readNetflixLocalData()
 
+#Reading 
 def readTsvFile(tf):
     tsvList = []
     with open(tf) as ratingsFile:
@@ -37,24 +38,23 @@ def readTsvFile(tf):
             tsvList.append(row)
     return tsvList
 
-mainTable = readTsvFile("ProjectData/cleanedData.csv")
+imdbTable = readTsvFile("ProjectData/cleanedData.csv")
+
 
 #Removing all IMDB movies with no votes
 poppedMoviesWithNoVotes = []
-for n in range(len(mainTable)):
-    if mainTable[n][-1] != "":
-        poppedMoviesWithNoVotes.append(mainTable[n])
-mainTable = poppedMoviesWithNoVotes
-
-
+for n in range(len(imdbTable)):
+    if imdbTable[n][-1] != "":
+        poppedMoviesWithNoVotes.append(imdbTable[n])
+imdbTable = poppedMoviesWithNoVotes
 
 
 def mergeWatchTime():
     #Adding column for mergin 
-    for x in range(len(mainTable)):
-        mainTable[x].append('\\N')
+    for x in range(len(imdbTable)):
+        imdbTable[x].append('\\N')
     mergeList = []
-    for mov in mainTable:
+    for mov in imdbTable:
         for nflix in netflixLocalData:    
             if nflix [0] == mov[2] or nflix [0] == mov[3]:
                 mov[-1] = nflix[1]
@@ -63,21 +63,21 @@ def mergeWatchTime():
     return mergeList
 
 mergedWatchTimeList = mergeWatchTime()
-workinglist = mergedWatchTimeList
-workinglist.pop(0)
+#mergeWatchTimeList = pd.read_csv('ProjectData/cleanedData.csv')
+mergedWatchTimeList.pop(0)
+
+
 genres_set = set()
-for n in range(len(workinglist)):
-    mov_genres = workinglist[n][8].split(",")
-    workinglist[n][8] = mov_genres[0]
+for n in range(len(mergedWatchTimeList)):
+    mov_genres = mergedWatchTimeList[n][8].split(",")
+    mergedWatchTimeList[n][8] = mov_genres[0]
     for j in range(len(mov_genres)):
         genres_set.add(mov_genres[j])
 
-print(len(genres_set))
-df = pd.DataFrame(data=workinglist)
+
+df = pd.DataFrame(data=mergedWatchTimeList)
 df.columns = ['tconst','titleType','primaryTitle','originalTitle','isAdult','startYear','endYear','runtimeMinutes','genres','averageRating','numVotes','watchDate']
 genresDf = df['genres'].str.get_dummies(sep=',')
-
-
 merged = pd.concat([df,genresDf],axis='columns')
-#print(merged)
-merged.to_csv('ProjectData/mergedWatchTime&GenresEncoding.csv')
+print(merged)
+#merged.to_csv('ProjectData/mergedWatchTime&GenresEncoding.csv')
