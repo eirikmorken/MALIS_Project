@@ -26,7 +26,7 @@ with open("ProjectData/NetflixViewingHistory.csv") as textfile:
             result.append(line)
     newFile.close()
 
-
+print(result)
 #Method for generally reading csv files
 def readTsvFile(tf):
     tsvList = []
@@ -36,7 +36,7 @@ def readTsvFile(tf):
             tsvList.append(row)
     return tsvList
 
-newMovList = readTsvFile('ProjecData/')
+#newMovList = readTsvFile('ProjecData/')
 
 
 #ratings = readTsvFile("ProjectData/title_ratings.tsv") #Ratings

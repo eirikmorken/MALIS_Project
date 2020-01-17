@@ -25,14 +25,16 @@ kp = KPrototypes(n_clusters=10, init='Cao', n_init=3, verbose=2)#option are Huan
 clusters = kp.fit_predict(input, categorical=list(range(23)))
 data['cluster'] = clusters
 clusterPercentage = []
+data['clusPercent'] = np.zeros(len(data.numVotes.values))
 for clusNum in range(10):
     clusData = data.loc[data.cluster==clusNum,:]
     totalLen = len(clusData.startYear.values)
     watchedLen = len(clusData.loc[clusData.watchDate!=0,'originalTitle'])
-    clusterPercentage.append(watchedLen/totalLen*100)
-clusPercent = np.array(clusterPercentage)
-bestCluster = data.loc[data.cluster==np.argmax(clusPercent),:]
-print(bestCluster)
+    data.loc[data.cluster == clusNum,'clusPercent'] = watchedLen/totalLen*100
+data.to_csv('ProjectData/trainingData.csv')
 
 
 
+
+
+data.to_csv('ProjectData/trainingData.csv')
